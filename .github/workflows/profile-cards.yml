@@ -64,7 +64,10 @@ jobs:
     needs: stats
     runs-on: ubuntu-latest
     steps:
+      # main, not the triggering commit: the stats job has pushed since
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
